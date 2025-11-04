@@ -34,8 +34,8 @@ app.post("/hollywood", async (req, res) =>{
     }
 });
 
-app.put('/hollywood/:ID', async (req, res)=>{
-    const id = req.params.ID;
+app.put('/hollywood/:id', async (req, res)=>{
+    const id = req.params.id;
     const data = req.body;
 
     try{
@@ -58,3 +58,17 @@ app.get('/hollywood', async (req, res)=>{
         res.send(err);
     }
 });
+
+app.delete('/hollywood/:id', async (req, res)=>{
+    const id = req.params.id;
+    try{
+        const hollywood = await db.Hollywood.findByPk(id);
+        if (!komik){
+            return res.status(404).send({ message: 'Komik tidak bisa ditemukan'});
+        }
+        await komik.destroy();
+        res.send({ message: 'komik berhasil dihapus'});
+    } catch (err) {
+        res.status(500).send(err);
+    }
+})
