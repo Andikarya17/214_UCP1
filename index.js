@@ -49,3 +49,12 @@ app.put('/hollywood/:ID', async (req, res)=>{
         res.status(500).send(err);
     }
 });
+
+app.get('/hollywood', async (req, res)=>{
+    try{
+        const hollywood = await db.Hollywood.findAll();
+        res.send(hollywood);
+    } catch (err) {
+        res.send(err);
+    }
+});
