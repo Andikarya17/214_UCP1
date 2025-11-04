@@ -34,3 +34,18 @@ app.post("/hollywood", async (req, res) =>{
     }
 });
 
+app.put('/hollywood/:ID', async (req, res)=>{
+    const id = req.params.ID;
+    const data = req.body;
+
+    try{
+        const hollywood = await db.Hollywood.findByPk(id);
+        if (!hollywood){
+            return res.status(404).send({ message: 'Film tidak ditemukan'});
+        }
+        await hollywood.update(data);
+        res.send({ message: 'FIlm berhasil di update', hollywood});
+    } catch(err){
+        res.status(500).send(err);
+    }
+});
