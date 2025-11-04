@@ -1,0 +1,32 @@
+1. buat folder biasa
+2. masuk terminal npm init -y
+3. buat file .gitignore 
+4. ketik di file .gitignore /node_modules dan .env
+5. buat file .sequelizerc
+6. kasih code di file .sequelizerc
+7. buat file .env kasih code nya yg di tele
+8. npm install express mysql2 nodemon sequelize sequelize-cli dotenv (ada 6 dependencies)
+9. menginisialisasi sequelize. npx sequelize init (akan membuat folder config, migration, models, dan seeders)
+10. memberi code di config.js dalam folder config di tele
+11. pastikan di index.js dalam folder models memanggil file config.js dalam folder config
+12. membuat file index.js di luar folder manapun. masuk dalam folder Nim_ORM
+13. membuat repo di GitHub
+14. git init
+15. git branch -M main
+16. git remote add origin link githubnya
+17. membuat file komik.js di folder models
+18. buka MySQL workbench nya
+19. buat schema baru kasih nama perpustakaan dalam tab schemas
+20. masuk ke file .env ubah nama database menjadi perpustakaan, kasih password, dan port nya
+21. memberi code di komik.js 
+22. perhatikan besar kecil di autoIncrement dan primaryKey (a dan p nya kecil, I dan K nya gede)
+23. pindah ke file index.js dan memberi code nya
+24. lupa konfigurasi di package.json di nodemon nya di script dan test
+25. tambahkan code "start": "nodemon index.js" dalam script
+26. jalankan npm start
+27. akan muncul di shema perpustakaan ada table komiks (otomatis tambah s karena dari sequelizenya)
+28. lanjut memberi code post, get
+29. perhatikan untuk panggil db.Komik (K nya gede) itu diakses dari folder models dalam file komik.js (const Komik = sequelize.define("Komik"....) disesuaikan panggilnya aja. klo k nya besar ya besar, klo kecil ya kecil manggilnya di file index.js
+30. melanjutkan code di index.js fungsi put dan delete
+31. mencoba buka di postman
+
