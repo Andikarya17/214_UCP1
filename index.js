@@ -27,7 +27,7 @@ db.sequelize.sync()
 app.post("/hollywood", async (req, res) =>{
     const data = req.body;
     try{
-        const hollywood = await db.Hollywood.create(data);
+        const hollywood = await db.hollywood.create(data);
         res.send(hollywood);
     } catch (err) {
         res.send(err);
