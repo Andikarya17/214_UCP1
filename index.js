@@ -27,7 +27,7 @@ db.sequelize.sync()
 app.post("/hollywood", async (req, res) =>{
     const data = req.body;
     try{
-        const hollywood = await db.hollywood.create(data);
+        const hollywood = await db.Hollywood.create(data);
         res.send(hollywood);
     } catch (err) {
         res.send(err);
@@ -63,11 +63,11 @@ app.delete('/hollywood/:id', async (req, res)=>{
     const id = req.params.id;
     try{
         const hollywood = await db.Hollywood.findByPk(id);
-        if (!komik){
-            return res.status(404).send({ message: 'Komik tidak bisa ditemukan'});
+        if (!hollywood){
+            return res.status(404).send({ message: 'Film tidak bisa ditemukan'});
         }
-        await komik.destroy();
-        res.send({ message: 'komik berhasil dihapus'});
+        await hollywood.destroy();
+        res.send({ message: 'Film berhasil dihapus'});
     } catch (err) {
         res.status(500).send(err);
     }
